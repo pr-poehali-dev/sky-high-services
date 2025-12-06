@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 158 100% 50%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 158 100% 50%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 199 89% 48%;
+    --input: 0 0% 10%;
+    --ring: 158 100% 50%;
 
-    --radius: 0.25rem;
+    --radius: 0rem;
 
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 199 89% 48%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 12%;
-    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 158 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-ring: 158 100% 50%;
   }
 }
 
@@ -64,5 +64,158 @@
   h5,
   h6 {
     font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .glitch {
+    position: relative;
+    animation: glitch-skew 1s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #00ff88;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  .glitch::after {
+    left: -2px;
+    text-shadow:
+      -2px 0 #00ff88,
+      2px 2px #ff0088;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(10px, 9999px, 31px, 0);
+      transform: skew(0.3deg);
+    }
+    5% {
+      clip: rect(70px, 9999px, 71px, 0);
+      transform: skew(0.5deg);
+    }
+    10% {
+      clip: rect(60px, 9999px, 16px, 0);
+      transform: skew(0.2deg);
+    }
+    15% {
+      clip: rect(87px, 9999px, 94px, 0);
+      transform: skew(0.4deg);
+    }
+    20% {
+      clip: rect(34px, 9999px, 73px, 0);
+      transform: skew(0.1deg);
+    }
+    100% {
+      clip: rect(67px, 9999px, 62px, 0);
+      transform: skew(0.3deg);
+    }
+  }
+
+  @keyframes glitch-anim2 {
+    0% {
+      clip: rect(65px, 9999px, 100px, 0);
+      transform: skew(0.5deg);
+    }
+    5% {
+      clip: rect(52px, 9999px, 74px, 0);
+      transform: skew(0.3deg);
+    }
+    10% {
+      clip: rect(79px, 9999px, 85px, 0);
+      transform: skew(0.4deg);
+    }
+    15% {
+      clip: rect(12px, 9999px, 59px, 0);
+      transform: skew(0.2deg);
+    }
+    20% {
+      clip: rect(85px, 9999px, 26px, 0);
+      transform: skew(0.6deg);
+    }
+    100% {
+      clip: rect(46px, 9999px, 32px, 0);
+      transform: skew(0.3deg);
+    }
+  }
+
+  @keyframes glitch-skew {
+    0% {
+      transform: skew(0deg);
+    }
+    10% {
+      transform: skew(-1deg);
+    }
+    20% {
+      transform: skew(1deg);
+    }
+    30% {
+      transform: skew(0deg);
+    }
+    100% {
+      transform: skew(0deg);
+    }
+  }
+
+  .rain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(transparent 50%, rgba(0, 255, 136, 0.02) 50%);
+    background-size: 100% 4px;
+    animation: rain 0.3s linear infinite;
+  }
+
+  @keyframes rain {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+
+  .neon-border {
+    border: 1px solid #00ff88;
+    box-shadow:
+      0 0 5px #00ff88,
+      inset 0 0 5px #00ff88;
+  }
+
+  .neon-text {
+    color: #00ff88;
+    text-shadow:
+      0 0 10px #00ff88,
+      0 0 20px #00ff88,
+      0 0 30px #00ff88;
+  }
+
+  .wet-surface {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 100%
+    );
+  }
+
+  .testimonial-text {
+    font-family: "Merriweather", serif;
   }
 }
